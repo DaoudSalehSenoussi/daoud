@@ -27,7 +27,7 @@ Route::get('/', function () {
 Route::get('/merhaba', 'HomeController@merhaba');
 Route::get('/kayit', 'HomeController@createView');
 Route::post('/kaydet','HomeController@create');
-
-
-
-Route::get('/users','HomeController@users');
+Route::get('/kisiler','HomeController@indexView');
+Route::get('/sil/{id}','HomeController@delete')->where(array('id'=>'[0-9]+'));//silme işlemi regex ifade
+Route::post('/guncelle/{id}','HomeController@update');//güncelleme işlemi
+Route::get('/guncelle/{id}','HomeController@updateView')->where(array('id'=>'[0-9]+'));
